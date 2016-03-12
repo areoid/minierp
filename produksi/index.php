@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<?php
+include "../src/produksi/cek_session.php";
+?>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		
+		<title>Home - Produksi</title>
+
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/dataTables.bootstrap.css">
+		<script type="text/javascript" language="javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" language="javascript" src="../js/dataTables.bootstrap.js"></script>
+		<script type="text/javascript" language="javascript" src="../js/bootstrap.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				$('#example').dataTable();
+
+				$("#idProduksiKeluar").click(function(){
+					$.ajax({
+						url: "../src/produksi/clear_session.php",
+						cache: false,
+						success: function(hasilLogout){
+							alert(hasilLogout);
+							window.location.reload();
+						}
+					});
+				});
+
+			} );
+		</script>
+	</head>
+	<body>
+		<div class="container">
+
+<!-- navbar -->
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Area Produksi</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-folder-open"></span> &nbsp;Master <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          	<li><a href="barang_jadi.php">Barang Jadi</a></li>
+          	<li class="divider"></li>
+          	<li><a href="stok_barang_mentah_gudang.php">Stok Barang Mentah</a></li>
+            <li><a href="stok_barang_jadi.php">Stok Barang Jadi</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-book"></span> Transaksi <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="permintaan_barang.php">Permintaan Barang Mentah</a></li>
+            <li><a href="pengiriman_barang.php">Pengiriman Barang Jadi</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-file"></span> Laporan <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="lap_barang_jadi.php">Laporan Barang Jadi</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+		<li><a id="idProduksiKeluar" href="#"><span class="glyphicon glyphicon-off"></span> Keluar</a></li>
+	  </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!-- /navbar -->
+			
+<div class="thumbnail">
+	<div class="caption">
+	<br>
+	<h3 align="center">Selamat datang di aplikasi pengolahan barang</h3>
+<div class="thumbnail">
+	<div class="caption">
+		Sitemap :<br>
+		=> Home<br>
+		=> Master<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;=> Barang Jadi<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;=> Stok Barang Mentah<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;=> Stok Barang Jadi<br>
+		=> Transaksi<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;=> Permintaan Barang Mentah<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;=> Pengiriman Barang Jadi<br>
+		=> Laporan<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;=> Laporan Barang Jadi<br>
+	</div>
+</div>
+	</div>
+</div>
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse .footer" id="bs-example-navbar-collapse-1">
+
+    </div><!-- /.navbar-collapse -->
+    <br>
+    <div align="center">
+    	<!--<div class="thumbnail" style="background-color: transparent">
+			<div class="caption" style="background-color: transparent">-->
+    			<img width="20%" src="../images/logo-naratel.png" />
+    			<h6><span style="color: #fff"> Copyright © 2014 | PT.Naraya Telematika </span></h6>
+    		
+    </div>
+</nav>		
+		</div><!-- /containet -->
+	</body>
+</html>
